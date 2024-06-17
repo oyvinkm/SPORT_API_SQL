@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Games</title>
+</head>
+<body>
+    <h1>Games</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Home Team</th>
+                <th>Away Team</th>
+                <th>Home Score</th>
+                <th>Away Score</th>
+                <th>Tournament Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for game in games %}
+            <tr>
+                <td><a href="{{ url_for('team', team_id=game.HomeTeamID) }}">{{ game.HomeTeamName }}</a></td>
+                <td><a href="{{ url_for('team', team_id=game.AwayTeamID) }}">{{ game.AwayTeamName }}</a></td>
+                <td>{{ game.homeScore }}</td>
+                <td>{{ game.awayScore }}</td>
+                <td>{{ game.TournamentName }}</td>
+                
+                
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
+
